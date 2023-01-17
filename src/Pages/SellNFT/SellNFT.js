@@ -12,15 +12,13 @@ export default function SellNFT() {
     async function getAllNFTs() {
         const ethers = require("ethers");
 
-        const QUICKNODE_HTTP_ENDPOINT = "https://goerli.infura.io/v3/d8887703bbcc41afa80e15559b0ed480"
-        const provider = new ethers.providers.JsonRpcProvider(QUICKNODE_HTTP_ENDPOINT)
-
+        
 
         //After adding your Hardhat network to your metamask, this code will get providers and signers
-        //const provider = new ethers.providers.Web3Provider(window.ethereum);
-        //const signer = provider.getSigner();
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
         //Pull the deployed contract instance
-        let contract = new ethers.Contract(MarketplaceJSON.address, MarketplaceJSON.abi, provider)
+        let contract = new ethers.Contract(MarketplaceJSON.address, MarketplaceJSON.abi, signer)
         //create an NFT Token
         let transaction = await contract.getAllNFTs()
 
