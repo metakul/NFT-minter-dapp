@@ -8,7 +8,7 @@ import Marketplace from '../../script/Marketplace.json';
 
 function Home() {
 
-    const [formParams, updateFormParams] = useState({ name: '', description: '' ,externalLink:''});
+    const [formParams, updateFormParams] = useState({ name: '', description: '' ,external_url:''});
     const [fileURL, setFileURL] = useState(null);
     const ethers = require("ethers");
     const [message, updateMessage] = useState('');
@@ -36,13 +36,13 @@ function Home() {
 
     //This function uploads the metadata to IPFS
     async function uploadMetadataToIPFS() {
-        const { name, description,externalLink } = formParams;
+        const { name, description,external_url } = formParams;
         //Make sure that none of the fields are empty
         if (!name || !description  || !fileURL)
             return;
 
         const nftJSON = {
-            name, description,externalLink, image: fileURL
+            name, description,external_url, image: fileURL
         }
 
         try {
@@ -81,7 +81,7 @@ function Home() {
 
             alert("Successfully Minted your NFT!");
             updateMessage("");
-            updateFormParams({ name: '', description: '', externalLink: '' });
+            updateFormParams({ name: '', description: '', external_url: '' });
             window.location.replace("/")
         }
         catch (e) {
@@ -111,7 +111,7 @@ function Home() {
                     <s.TextSubTitle>External link</s.TextSubTitle>
                     <s.TextInfo>OpenSea will include a link to this URL on this item's detail page, so that users can click to learn more about it. You are welcome to link to your own webpage with more details.</s.TextInfo>
 
-                    <s.nftInput type="text" name="externallink" placeholder="https://yoursite.io/" value={formParams.externalLink} onChange={e => updateFormParams({ ...formParams, externalLink: e.target.value })} />
+                    <s.nftInput type="text" name="externallink" placeholder="https://yoursite.io/" value={formParams.external_url} onChange={e => updateFormParams({ ...formParams, external_url: e.target.value })} />
 
                     <s.TextSubTitle>Description</s.TextSubTitle>
                     <s.TextInfo>The description will be included on the item's detail page underneath its image. Markdown syntax is supported.</s.TextInfo>
