@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\public",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\Navbar",
+    "\\src\\Pages",
+    "\\src\\Pages\\Home",
+    "\\src\\Pages\\NFTPage",
+    "\\src\\Pages\\Profile",
+    "\\src\\Pages\\SellNFT"
+  ],
+  "SelectedNode": "\\src\\Pages\\NFTPage\\NFTPage.js",
+  "PreviewInSolutionExplorer": false
+}
